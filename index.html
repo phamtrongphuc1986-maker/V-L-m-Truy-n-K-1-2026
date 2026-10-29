@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Võ Lâm Truyền Kỳ — Web Game</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<!-- ===== MAN HINH TAO NHAN VAT ===== -->
+<div id="manTao" class="hop">
+  <h1 class="tieuDeGame">⚔️ VÕ LÂM TRUYỀN KỲ ⚔️</h1>
+  <p class="phuDe">Webgame nhập vai cày cấp — cày đồ<br>Bản chuyển thể phong cách Võ Lâm 2005</p>
+  <label>Tên nhân vật</label>
+  <input id="tenNhap" type="text" maxlength="16" placeholder="Ví dụ: Độc Cô Cầu Bại">
+  <label>Giới tính</label>
+  <div class="chonGioi">
+    <button id="gtNam" class="nutChon dangChon" onclick="chonGioi('nam')">👨 Nam</button>
+    <button id="gtNu" class="nutChon" onclick="chonGioi('nu')">👩 Nữ</button>
+  </div>
+  <p class="ghiChu">Cấp 10 sẽ được nhập môn phái. Lưu ý: Thiếu Lâm và Thiên Vương Bang chỉ nhận nam đệ tử. Tên nhân vật ban đầu màu trắng — gia nhập môn phái sẽ đổi màu theo ngũ hành.</p>
+  <button class="nutLon" onclick="taoNhanVat()">BẮT ĐẦU HÀNH TẨU</button>
+  <button id="btnChoiTiep" class="nutPhu an" onclick="choiTiep()">▶ Chơi tiếp nhân vật đã lưu</button>
+</div>
+
+<!-- ===== MAN HINH GAME ===== -->
+<div id="manGame" class="an">
+  <div class="thanhTren">
+    <div class="dong1">
+      <span id="tenNV" class="tenNV">?</span>
+      <span id="capNV" class="capNV">Lv.1</span>
+      <span id="phaiNV" class="phaiNV">Chưa nhập phái</span>
+    </div>
+    <div class="thanhBar"><div id="thanhHP" class="bar hp"></div><span id="chuHP" class="chuBar"></span></div>
+    <div class="thanhBar"><div id="thanhMP" class="bar mp"></div><span id="chuMP" class="chuBar"></span></div>
+    <div class="thanhBar"><div id="thanhEXP" class="bar exp"></div><span id="chuEXP" class="chuBar"></span></div>
+    <div class="dong2">💰 Ngân lượng: <b id="bacNV">0</b> · 🧪 Kim Sang Dược: <b id="duocNV">0</b></div>
+  </div>
+
+  <div class="tabs">
+    <button data-tab="luyen" class="tabBtn dangMo" onclick="moTab('luyen')">⚔️ Luyện công</button>
+    <button data-tab="nv" class="tabBtn" onclick="moTab('nv')">🧍 Nhân vật</button>
+    <button data-tab="tui" class="tabBtn" onclick="moTab('tui')">🎒 Túi đồ</button>
+    <button data-tab="nhiemvu" class="tabBtn" onclick="moTab('nhiemvu')">📜 Nhiệm vụ</button>
+    <button data-tab="thon" class="tabBtn" onclick="moTab('thon')">🏯 Thôn trấn</button>
+  </div>
+
+  <!-- LUYEN CONG -->
+  <section id="tab-luyen" class="tabPage">
+    <div id="dsMap" class="dsMap"></div>
+    <div class="theQuai">
+      <div id="tenQuai" class="tenQuai">—</div>
+      <div id="loaiQuai" class="loaiQuai"></div>
+      <div class="thanhBar lon"><div id="thanhQuaiHP" class="bar hp"></div><span id="chuQuaiHP" class="chuBar"></span></div>
+      <div id="thongTinQuai" class="ghiChu"></div>
+    </div>
+    <div class="nutDanh">
+      <button class="nutLon nho" onclick="danhThuong()">👊 Đánh thường</button>
+      <button id="btnSkill1" class="nutSkill" onclick="dungSkill(0)">Skill 1</button>
+      <button id="btnSkill2" class="nutSkill" onclick="dungSkill(1)">Skill 2</button>
+      <button id="btnSkill3" class="nutSkill" style="display:none" onclick="dungVoTuongTram()">🌙 Vô Tướng Trảm</button>
+      <button class="nutPhu" onclick="dungDuoc()">🧪 Dùng dược</button>
+      <button id="btnAuto" class="nutPhu" onclick="batTatAuto()">▶ Tự động đánh</button>
+      <button class="nutPhu" onclick="doiQuai()">🔍 Tìm quái khác</button>
+    </div>
+    <div id="nhatKy" class="nhatKy"></div>
+  </section>
+
+  <!-- NHAN VAT -->
+  <section id="tab-nv" class="tabPage an">
+    <h3>Chỉ số nhân vật</h3>
+    <div id="chiSo" class="luoiChiSo"></div>
+    <h3>Trang bị đang mặc</h3>
+    <div id="doMac"></div>
+    <button class="nutPhu nguyHiem" onclick="xoaSave()">🗑️ Xóa nhân vật, chơi lại từ đầu</button>
+  </section>
+
+  <!-- TUI DO -->
+  <section id="tab-tui" class="tabPage an">
+    <div class="dongNut">
+      <button class="nutPhu" onclick="banTrang()">Bán hết đồ trắng</button>
+      <button class="nutPhu" onclick="banDuoiCap()">Bán đồ dưới cấp đồ hiện tại</button>
+    </div>
+    <div id="dsTui"></div>
+  </section>
+
+  <!-- NHIEM VU -->
+  <section id="tab-nhiemvu" class="tabPage an">
+    <div id="dsNV"></div>
+  </section>
+
+  <!-- THON TRAN -->
+  <section id="tab-thon" class="tabPage an">
+    <h3>🏯 Dương Châu Thành</h3>
+    <div id="dsNPC"></div>
+    <div id="bangNPC"></div>
+  </section>
+
+  <p class="chanTrang">Game lưu tự động trên máy này. Đồ xanh trở lên là đồ đáng cày — chúc đại hiệp sớm ra đồ đỏ! 🔴</p>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
