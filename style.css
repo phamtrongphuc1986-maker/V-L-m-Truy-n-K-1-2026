@@ -1,0 +1,161 @@
+* { box-sizing: border-box; }
+body { background:#14100c; color:#e8e0cf; font-family: Arial, sans-serif; margin:0; padding:0 10px 30px; }
+.an { display:none !important; }
+.hop { max-width:520px; margin:26px auto; background:#1e1811; border:1px solid #6b5320; border-radius:14px; padding:22px 18px; text-align:center; }
+.tieuDeGame { color:#f5c542; font-size:26px; margin:4px 0; text-shadow:0 2px 8px #000; }
+.phuDe { color:#bfae8d; font-size:14px; line-height:1.5; }
+label { display:block; text-align:left; margin:14px 0 6px; color:#f5c542; font-weight:bold; font-size:14px; }
+input[type=text] { width:100%; padding:11px; font-size:16px; border-radius:8px; border:1px solid #6b5320; background:#0f0c08; color:#fff; }
+.chonGioi { display:flex; gap:10px; }
+.nutChon { flex:1; padding:11px; border-radius:8px; border:1px solid #6b5320; background:#2a2115; color:#e8e0cf; font-size:16px; cursor:pointer; }
+.nutChon.dangChon { background:#8a6d1f; color:#fff; border-color:#f5c542; }
+.nutLon { width:100%; padding:13px; margin-top:16px; background:linear-gradient(#b98a1e,#8a6d1f); color:#fff; font-size:17px; font-weight:bold; border:none; border-radius:9px; cursor:pointer; }
+.nutLon.nho { width:auto; padding:11px 16px; margin-top:0; font-size:15px; }
+.nutPhu { padding:10px 13px; background:#2a2115; color:#e8e0cf; border:1px solid #6b5320; border-radius:8px; cursor:pointer; font-size:14px; }
+.nutPhu.nguyHiem { margin-top:22px; border-color:#8a3030; color:#f0a0a0; }
+.nutSkill { padding:11px 13px; background:#31456e; color:#dceaff; border:1px solid #5b7fc4; border-radius:8px; cursor:pointer; font-size:14px; font-weight:bold; }
+.nutSkill:disabled { opacity:.4; }
+.ghiChu { color:#a99e83; font-size:13px; line-height:1.5; }
+
+.thanhTren { position:sticky; top:0; background:#1e1811; border-bottom:2px solid #6b5320; padding:10px 6px 8px; margin:0 -10px; z-index:5; }
+.thanhTren .dong1 { display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; }
+.tenNV { font-size:19px; font-weight:bold; }
+.capNV { color:#f5c542; font-weight:bold; }
+.phaiNV { color:#bfae8d; font-size:13px; }
+.thanhBar { position:relative; background:#0f0c08; border:1px solid #4a3a17; border-radius:6px; height:16px; margin-top:5px; overflow:hidden; }
+.thanhBar.lon { height:20px; }
+.bar { height:100%; transition:width .25s; }
+.bar.hp { background:linear-gradient(90deg,#c22e2e,#e5534b); }
+.bar.mp { background:linear-gradient(90deg,#2456c2,#4b83e5); }
+.bar.exp { background:linear-gradient(90deg,#8a6d1f,#f5c542); }
+.chuBar { position:absolute; inset:0; text-align:center; font-size:11px; line-height:16px; color:#fff; text-shadow:0 1px 2px #000; }
+.thanhBar.lon .chuBar { line-height:20px; font-size:12px; }
+.dong2 { margin-top:6px; font-size:14px; color:#d9c9a3; }
+
+.tabs { display:flex; gap:6px; margin:12px 0; flex-wrap:wrap; }
+.tabBtn { flex:1; min-width:100px; padding:10px 4px; background:#241c11; color:#cbbd97; border:1px solid #55451f; border-radius:8px; cursor:pointer; font-size:13.5px; }
+.tabBtn.dangMo { background:#8a6d1f; color:#fff; border-color:#f5c542; }
+.tabPage h3 { color:#f5c542; margin:14px 0 8px; }
+
+.dsMap { display:flex; gap:7px; overflow-x:auto; padding-bottom:8px; }
+.mapChip { white-space:nowrap; padding:8px 12px; border-radius:16px; border:1px solid #55451f; background:#241c11; color:#cbbd97; cursor:pointer; font-size:13.5px; }
+.mapChip.dangO { background:#8a6d1f; color:#fff; border-color:#f5c542; }
+.mapChip.khoa { opacity:.45; }
+.theQuai { background:#241c11; border:1px solid #55451f; border-radius:12px; padding:14px; margin-top:8px; }
+.tenQuai { font-size:21px; font-weight:bold; }
+.loaiQuai { font-size:13px; color:#a99e83; margin:3px 0 8px; }
+.nutDanh { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.nhatKy { margin-top:14px; background:#0f0c08; border:1px solid #3a2f16; border-radius:10px; padding:10px 12px; height:180px; overflow-y:auto; font-size:13.5px; line-height:1.55; }
+.nhatKy div { border-bottom:1px dashed #2c2413; padding:2px 0; }
+
+.luoiChiSo { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.oChiSo { background:#241c11; border:1px solid #55451f; border-radius:9px; padding:9px 12px; font-size:14.5px; }
+.oChiSo b { color:#f5c542; }
+.theDo { background:#241c11; border:1px solid #55451f; border-radius:10px; padding:10px 12px; margin:8px 0; display:flex; justify-content:space-between; gap:10px; align-items:center; }
+.theDo .tenDo { font-weight:bold; font-size:15px; }
+.theDo .chiTietDo { font-size:13px; color:#bfae8d; margin-top:2px; line-height:1.45; }
+.theDo button { flex-shrink:0; }
+.dongNut { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:6px; }
+
+.theNV { background:#241c11; border:1px solid #55451f; border-radius:10px; padding:12px; margin:10px 0; }
+.theNV .tieuDeNV { font-weight:bold; color:#ffe9a8; font-size:15.5px; }
+.theNV .moTaNV { font-size:14px; color:#d9c9a3; line-height:1.5; margin:5px 0; }
+.theNV .tienDo { font-size:13.5px; color:#9fd08a; }
+.theNPC { background:#241c11; border:1px solid #55451f; border-radius:10px; padding:12px; margin:9px 0; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+.theNPC .tenNPC { font-weight:bold; color:#ffe9a8; }
+.theNPC .moTaNPC { font-size:13px; color:#a99e83; margin-top:2px; }
+#bangNPC { margin-top:10px; }
+.khoiNPC { background:#1a1409; border:1px solid #6b5320; border-radius:10px; padding:13px; }
+.khoiNPC h4 { color:#f5c542; margin:2px 0 8px; }
+.luaChon { display:block; width:100%; text-align:left; margin:6px 0; padding:11px 12px; background:#2a2115; border:1px solid #55451f; border-radius:8px; color:#e8e0cf; cursor:pointer; font-size:14.5px; }
+.luaChon:disabled { opacity:.45; }
+.luaChon b { color:#ffe9a8; }
+.chanTrang { text-align:center; color:#8a7c5c; font-size:12.5px; margin-top:22px; line-height:1.5; }
+
+/* ===== SAN DAU 2.5D (ban 2) ===== */
+#stageWrap { margin-top:10px; width:100%; }
+#stageCV { width:100%; height:auto; display:block; border:1px solid #6b5320; border-radius:12px; background:#20303f; touch-action:manipulation; }
+.stageHint { font-size:12.5px; color:#a99e83; margin-top:6px; line-height:1.5; }
+.theQuai { display:none; }
+
+/* ===== BAN 4: HUD + CONG XOAY + TAI KHOAN/SERVER ===== */
+#stageWrap { position:relative; }
+.hudCum { position:absolute; z-index:6; }
+#hudTL { top:8px; left:8px; display:flex; gap:8px; align-items:flex-start; pointer-events:none; }
+#hudAva { border-radius:50%; border:2px solid #c9a227; background:#232c3d; flex:none; }
+.hudBars { width:148px; }
+.hbar { height:12px; background:rgba(0,0,0,.6); border:1px solid rgba(255,255,255,.4); border-radius:6px; overflow:hidden; margin-bottom:3px; position:relative; }
+.hbar > i { display:block; height:100%; transition:width .25s; }
+.hbar > span { position:absolute; inset:0; font-size:9.5px; color:#fff; text-align:center; line-height:12px; text-shadow:0 1px 2px #000; }
+#hudMeta { color:#eaf3ff; font-size:11px; text-shadow:0 1px 3px #000; margin-top:2px; line-height:1.5; }
+#hudTR { top:8px; right:8px; text-align:right; }
+#hudMap { border:1px solid #c9a227; border-radius:8px; background:rgba(8,12,18,.88); }
+#hudXY { color:#ffe9a8; font-size:11.5px; font-weight:bold; text-shadow:0 1px 3px #000; margin-top:2px; }
+.hudNutTron { pointer-events:auto; width:30px; height:30px; border-radius:50%; border:1px solid #c9a227; background:rgba(20,16,10,.8); color:#ffe9a8; font-size:15px; margin-left:5px; }
+#hudInfo { left:14px; bottom:134px; color:#dceeff; font-size:11px; text-shadow:0 1px 3px #000; pointer-events:none; }
+#hudJoy { left:14px; bottom:14px; width:112px; height:112px; border-radius:50%; background:rgba(255,255,255,.07); border:2px solid rgba(255,255,255,.35); touch-action:none; pointer-events:auto; }
+#joyNub { position:absolute; left:50%; top:50%; width:48px; height:48px; margin:-24px 0 0 -24px; border-radius:50%; background:rgba(255,255,255,.32); border:2px solid rgba(255,255,255,.65); }
+#hudSkills { right:12px; bottom:14px; display:flex; gap:10px; pointer-events:auto; }
+.skBtn { width:58px; height:58px; border-radius:50%; border:2px solid #c9a227; background:rgba(20,16,10,.85); color:#ffe9a8; font-size:10.5px; line-height:1.25; padding:4px; }
+.skBtn b { display:block; font-size:16px; }
+#expBarWrap { margin-top:6px; background:#141210; border:1px solid #6b5320; height:17px; border-radius:9px; position:relative; overflow:hidden; }
+#expFill { height:100%; background:linear-gradient(90deg,#8a6d1f,#f5c542); width:0%; transition:width .3s; }
+#expTxt { position:absolute; inset:0; text-align:center; font-size:11.5px; color:#fff; line-height:17px; text-shadow:0 1px 2px #000; }
+#tkBar { font-size:12px; color:#a99e83; margin-top:6px; }
+#tkBar button { background:none; border:1px solid #6b5320; color:#f5c542; border-radius:6px; padding:2px 8px; margin-left:6px; }
+#manTK { position:fixed; inset:0; background:rgba(6,6,10,.94); z-index:99; display:flex; align-items:center; justify-content:center; padding:14px; }
+.tkBox { background:#221c14; border:1px solid #c9a227; border-radius:14px; padding:18px; width:100%; max-width:380px; max-height:92vh; overflow:auto; }
+.tkBox h2 { color:#f5c542; margin:0 0 4px; font-size:20px; text-align:center; }
+.tkBox .phu { color:#a99e83; font-size:12.5px; text-align:center; margin-bottom:12px; line-height:1.5; }
+.tkBox input { width:100%; box-sizing:border-box; padding:11px; margin-bottom:9px; border-radius:9px; border:1px solid #6b5320; background:#171310; color:#fff; font-size:15px; }
+.tkBox .tkNut { width:100%; padding:12px; border:none; border-radius:9px; background:linear-gradient(180deg,#e8bd45,#b8860b); color:#231a05; font-weight:bold; font-size:15.5px; margin-bottom:8px; }
+.tkBox .tkNutPhu { width:100%; padding:10px; border:1px solid #6b5320; border-radius:9px; background:none; color:#f5c542; font-size:14px; margin-bottom:8px; }
+.tkBox .otpMoPhong { background:#3a2c12; border:1px dashed #f5c542; color:#ffe9a8; border-radius:9px; padding:9px; font-size:13.5px; text-align:center; margin-bottom:9px; line-height:1.5; }
+.tkBox .loi { color:#ff8f8f; font-size:13px; min-height:17px; text-align:center; }
+.tkBox .svNut { text-align:left; }
+.tkBox .svNut small { display:block; color:#a99e83; font-weight:normal; }
+
+/* ===== BAN 4.1: TOAN MAN HINH + KHOA MAN HINH ===== */
+#btnFull2 { position:absolute; right:12px; top:44%; z-index:7; width:46px; height:46px; border-radius:50%; border:2px solid rgba(255,255,255,.55); background:rgba(10,10,14,.55); color:#fff; font-size:21px; pointer-events:auto; }
+#btnKhoa { position:absolute; right:12px; top:calc(44% + 58px); z-index:7; width:46px; height:46px; border-radius:50%; border:2px solid rgba(255,255,255,.55); background:rgba(10,10,14,.55); color:#fff; font-size:20px; pointer-events:auto; }
+#khoaMan { position:absolute; inset:0; z-index:40; background:rgba(0,0,0,.94); display:none; flex-direction:column; align-items:center; justify-content:center; color:#8f9bb0; text-align:center; padding:20px; }
+#khoaMan .khoaIco { font-size:56px; margin-bottom:8px; }
+#khoaMan .khoaGio { font-size:22px; color:#c8d4e8; margin-top:8px; }
+#stageWrap:fullscreen { background:#000; }
+#stageWrap:fullscreen #stageCV { border:none; border-radius:0; }
+#stageWrap:fullscreen .stageHint { display:none; }
+
+/* ===== BAN 5.2: Luoi hanh trang + o trang bi kieu JX1M, do Kim Phong ===== */
+.luoiTui { display:grid; grid-template-columns:repeat(6,1fr); gap:6px; margin-top:8px; }
+.oDo { position:relative; aspect-ratio:1/1; border:1.5px solid #55451f; border-radius:8px; background:#241c11; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+.oDo .iconDo { font-size:25px; line-height:1; }
+.oDo .capDo { position:absolute; left:3px; bottom:2px; font-size:10px; font-weight:700; color:#e7dcc8; text-shadow:0 1px 2px #000; }
+.oDo .khoaDo { position:absolute; right:2px; top:1px; font-size:11px; }
+.oDo .nhanKP { position:absolute; top:1px; left:3px; font-size:9px; font-weight:800; color:#fbbf24; text-shadow:0 1px 2px #000; }
+.oDo.kp { border-color:#fbbf24 !important; box-shadow:inset 0 0 8px rgba(245,158,11,.55), 0 0 5px rgba(245,158,11,.4); }
+.oDo.dangChon { outline:2px solid #fff; outline-offset:-2px; }
+.oDo.oTrong { opacity:.32; cursor:default; }
+#chiTietDoChon { margin-top:6px; }
+.luoiMac { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:6px; }
+.oMac { border:1.5px solid #55451f; border-radius:8px; background:#241c11; padding:7px 4px 6px; text-align:center; }
+.oMac .iconMac { font-size:24px; line-height:1.15; }
+.oMac .tenOMac { font-size:12px; font-weight:700; margin:2px 0; word-break:break-word; }
+.oMac .chiTietDo { font-size:11px; color:#bfae8d; line-height:1.4; margin-bottom:4px; }
+.oMac.kp { border-color:#fbbf24 !important; box-shadow:inset 0 0 8px rgba(245,158,11,.55); }
+.oMac.trong { opacity:.55; }
+
+/* ===== BAN 5.3: Bang ky nang vo cong (diem ky nang + cap chieu, chuan JX1) ===== */
+#bangKyNang h3 { color:#f5c542; margin:14px 0 8px; }
+.luoiChieu { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:6px; }
+.oChieu { border:1.5px solid #55451f; border-radius:8px; background:#241c11; padding:8px 6px; text-align:center; cursor:pointer; }
+.oChieu .iconChieu { font-size:25px; line-height:1.15; }
+.oChieu .tenChieu { font-size:12.5px; font-weight:700; color:#ffe9a8; margin:2px 0; word-break:break-word; }
+.oChieu .capChieu { font-size:11.5px; color:#bfae8d; }
+.oChieu.dangChon { outline:2px solid #fff; outline-offset:-2px; }
+.oChieu.toiDa { border-color:#fbbf24; box-shadow:inset 0 0 8px rgba(245,158,11,.55), 0 0 5px rgba(245,158,11,.4); }
+.hopChieu { background:#241c11; border:1px solid #55451f; border-radius:10px; padding:10px 12px; margin-top:8px; }
+.hopChieu .tenChieuLon { font-weight:bold; font-size:15.5px; color:#ffe9a8; }
+.hopChieu .moTaChieu { font-size:13.5px; color:#d9c9a3; line-height:1.55; margin:4px 0 10px; }
+.hopChieu .nutLon.nho:disabled { opacity:.4; }
+.dongDiemKN { margin-top:8px; background:#1a1409; border:1px solid #6b5320; border-radius:8px; padding:8px 12px; font-size:14.5px; color:#d9c9a3; }
+.dongDiemKN b { color:#f5c542; }
